@@ -1,0 +1,39 @@
+﻿@model KatmanliMimari.UI.Models.PersonelModel
+
+@{
+    ViewData["Title"] = "Crud";
+}
+
+<h1>Crud</h1>
+
+<h4>@Model.Head</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="personel.Id" class="control-label"></label>
+                <input asp-for="personel.Id" class="form-control" />
+                <span asp-validation-for="personel.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="personel.Name" class="control-label"></label>
+                <input asp-for="personel.Name" class="form-control" />
+                <span asp-validation-for="personel.Name" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="@Model.Text" class="@Model.Cls"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
